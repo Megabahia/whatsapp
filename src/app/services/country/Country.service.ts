@@ -2,9 +2,9 @@
 // import User from "src/app/models/User";
 // import UserValidator from "src/app/validators/User.validator";
 // // import moment from "moment";
-import { Inject, Service } from "typedi";
+import {Inject, Service} from "typedi";
 import CountryValidator from "../../validators/Country.validator";
-import { WhatsappProvider } from "../../providers/whatsapp/Whatsapp.provider";
+import {WhatsappProvider} from "../../providers/whatsapp/Whatsapp.provider";
 // // import bcrypt from "bcryptjs";
 // // import UserValidator from "../../validators/User.validator";
 // import CountryRepository from "../../repositories/User.repository";

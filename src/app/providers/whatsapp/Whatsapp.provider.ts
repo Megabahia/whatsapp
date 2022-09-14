@@ -50,7 +50,7 @@ export class WhatsappProvider {
     const url = `${this.host}/110087058515036/messages`;
     const headers = {
       "Content-Type": "application/json",
-      "Authorization": `Bearer EAALLDFI0Hd4BAMIhTYCZAQB3rX1fYIHVCYwCvghpM3OLGE7s77TU5Cn233T1T2uAvj0K6W4CHiKshYQ3g07STMegxBcXGT9M6AmAyxOqZA2FoSjVEmZCWru7RPpJ8iqfGmaOBOrt1cwLmtcKmWbiD2NDqsWfiXnhrp3BPlCn8o3SmuRV5Tm`
+      "Authorization": `Bearer ${process.env.WHATSAPP_TOKEN}`
     };
     try {
       const data = {

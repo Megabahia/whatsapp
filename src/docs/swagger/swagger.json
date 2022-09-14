@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Node Boilerplate Example",
+    "version": "1.0.0",
+    "description": "Welcome to the Node Boilerplate Example specification. \nHere you will find the necessary information to succesfully consume the API services.\n\n## Headers\n\nEvery call to the API must include the following headers:\n\n```http\nContent-Type: application/json\n```\n\n## HTTP codes\n\nThe API uses common HTTP codes to handle requests and responses.\nThe following table shows common HTTP codes:\n\n| Code | Description                                                            |\n|------|------------------------------------------------------------------------|\n| 200  | Everything is ok.                                                      |\n| 400  | Valid data was given but the request has failed.                       |\n| 401  | No valid API Key was given.                                            |\n| 404  | The request resource could not be found.                               |\n| 405  | The method is not implemented                                          |\n| 422  | The payload has missing required parameters or invalid data was given. |\n| 429  | Too many attempts.                                                     |\n| 500  | Request failed due to an internal error.                               |\n| 503  | API is offline for maintenance."
+  },
+  "host": "localhost:5000",
+  "basePath": "/api/v1",
+  "schemes": ["http", "https"],
+  "produces": ["application/json"],
+  "definitions": {
+    "EntityExample": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Entity Example name",
+          "type": "string",
+          "example": "Example"
+        },
+        "additionalInfo": {
+          "description": "Entity Example metadata",
+          "type": "object"
+        },
+        "description": {
+          "description": "Entity Example metadata",
+          "type": "string",
+          "example": "Example description"
+        },
+        "public": {
+          "description": "If the entity example is public or not",
+          "type": "object",
+          "example": true
+        }
+      },
+      "required": ["name", "petType"]
+    }
+  },
+  "paths": {
+    "/entityExample": {
+      "post": {
+        "tags": ["Entity Example"],
+        "summary": "Create Entity Example",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EntityExample"
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": ["Entity Example"],
+        "summary": "Update Entity Example",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EntityExample"
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": ["Entity Example"],
+        "summary": "List Entity Examples",
+        "responses": {
+          "200": {
+            "description": "Tickets List",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EntityExample"
+              }
+            }
+          },
+          "422": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
